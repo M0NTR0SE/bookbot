@@ -15,10 +15,12 @@ def main() -> int:
     words = file_contents.split()
     word_count = len(words)
 
-    print(word_count)
+    # print(word_count)
 
     characters = char_count(file_contents)
-    print(characters)
+    # print(characters)
+
+    printout(characters, word_count, __file__)
 
 def char_count(texts):
     # Initialize empty dictionary to store values
@@ -39,5 +41,17 @@ def char_count(texts):
 
     return(characters)
 
+def printout(characters, word_count, file_path):
+    print(f"--- Begin report of {file_path} ---")
+    print(f"{word_count} words found in the document\n")
+    
+    # Initialize alphabet
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    for character in characters:
+        if character in alphabet:
+            print(f"The '{character}' character was found {characters[character]} times")
+
+    print("--- End report ---")
 
 main()
