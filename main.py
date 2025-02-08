@@ -13,19 +13,8 @@ def main() -> int:
     # If yes, +1 word count
     #   Need to create exceptions when separators chain each other. Example "Hi. Hello." would count as 3 words because '.', ' ', and '.'.
 
-    word_count = 0
-    separator_last = False
-
-    # separators = {" ", "!", ".", ",", "?"}
-    separators = {" "}
-
-    for content in file_contents:
-        # if separator_last == True:
-        #     if content not in separators:
-        #         separator_last = False
-        if content in separators:
-            word_count += 1
-            separator_last = True
+    words = file_contents.split()
+    word_count = len(words)
 
     print(word_count)
 
