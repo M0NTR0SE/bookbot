@@ -20,7 +20,16 @@ def main() -> int:
     characters = char_count(file_contents)
     # print(characters)
 
-    printout(characters, word_count, __file__)
+    # sort results of char_count() into a list
+    sorted_characters = []
+
+    for letter in characters:
+        sorted_characters.append({"char": letter, "count": characters[letter]})
+    
+    sorted_characters.sort(reverse=True, key=sort_on)
+    # print(sorted_characters)
+
+    printout(sorted_characters, word_count, f)
 
 def char_count(texts):
     # Initialize empty dictionary to store values
@@ -39,19 +48,23 @@ def char_count(texts):
         elif text in characters:
             characters[text] += 1
 
+    # print(type(characters))
+    
+    # print(characters)
+
     return(characters)
 
 def printout(characters, word_count, file_path):
     print(f"--- Begin report of {file_path} ---")
     print(f"{word_count} words found in the document\n")
     
-    # Initialize alphabet
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-
     for character in characters:
-        if character in alphabet:
-            print(f"The '{character}' character was found {characters[character]} times")
+        if character["char"].isalpha():
+            print(f"The '{character["char"]}' character was found {character["count"]} times")
 
     print("--- End report ---")
+
+def sort_on(characters):
+    return characters["count"]
 
 main()
