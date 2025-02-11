@@ -29,7 +29,7 @@ def main() -> int:
     sorted_characters.sort(reverse=True, key=sort_on)
     # print(sorted_characters)
 
-    printout(sorted_characters, word_count, f)
+    printout(sorted_characters, word_count, f.buffer.name)
 
 def char_count(texts):
     # Initialize empty dictionary to store values
