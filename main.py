@@ -7,20 +7,15 @@ def main() -> int:
     # print(file_contents)
 
     # Count the number of words in the file
-    # Distinguish what counts as a separator of words (spaces, punctuation, etc.)
-    # Evaluate if current is char is in separator set
-    # If yes, +1 word count
-    #   Need to create exceptions when separators chain each other. Example "Hi. Hello." would count as 3 words because '.', ' ', and '.'.
-
     words = file_contents.split()
     word_count = len(words)
-
     # print(word_count)
 
+    # Count each instance of each character
     characters = char_count(file_contents)
     # print(characters)
 
-    # sort results of char_count() into a list
+    # Sort results of char_count() into a list
     sorted_characters = []
 
     for letter in characters:
@@ -31,6 +26,7 @@ def main() -> int:
 
     printout(sorted_characters, word_count, f.buffer.name)
 
+# Count the number of instances of each character in the text
 def char_count(texts):
     # Initialize empty dictionary to store values
     characters = {}
@@ -38,8 +34,8 @@ def char_count(texts):
     # Go through all characters in text
     # Send to lowercase
     # Check if in characters dict
-    #   If yes, increase count by 1
     #   If no, add character to dictionary, and increase count by 1
+    #   If yes, increase count by 1
     for text in texts:
         text = text.lower()
 
@@ -49,7 +45,6 @@ def char_count(texts):
             characters[text] += 1
 
     # print(type(characters))
-    
     # print(characters)
 
     return(characters)
