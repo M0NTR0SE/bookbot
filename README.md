@@ -1,7 +1,7 @@
 # bookbot
 boot.dev bookbot project repo
 
-BookBot is my first [BootDev](boot.dev) project!
+BookBot is my first [Boot.dev](https://www.boot.dev) project!
 
 **Completed:** Feb 11, 2025
 
